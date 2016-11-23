@@ -7,7 +7,7 @@ void Creep::Iniciar(Caminho* rota, int id) {
 	m_id = id;
 	m_proximoPonto = 1;
 	m_rota = rota;
-	m_posicao = rota->PegarPosicaoDe(0);
+	m_posicao = rota->PegarPosicaoDe(0); //
 	m_direcao = rota->PegarPosicaoDe(1);
 	m_vida = 100.f;
 	m_vivo = true;
