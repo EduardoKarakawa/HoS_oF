@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Caminho.cpp" />
+    <ClCompile Include="src\Controlador.cpp" />
+    <ClCompile Include="src\Creep.cpp" />
+    <ClCompile Include="src\Jogador.cpp" />
+    <ClCompile Include="src\Mapa.cpp" />
+    <ClCompile Include="src\Objeto.cpp" />
+    <ClCompile Include="src\Tiro.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{ac1145b2-8bf1-4d4c-9f06-c7ac8eaf3552}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Caminho.h" />
+    <ClInclude Include="src\Controlador.h" />
+    <ClInclude Include="src\Creep.h" />
+    <ClInclude Include="src\Jogador.h" />
+    <ClInclude Include="src\Mapa.h" />
+    <ClInclude Include="src\Objeto.h" />
+    <ClInclude Include="src\Tiro.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+</Project>
