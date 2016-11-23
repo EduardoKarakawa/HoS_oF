@@ -8,7 +8,7 @@ void Caminho::Inicializar(ofVec2f mundo) {
 	m_listaPontos[3] = ofVec2f(1330, 915) + mundo;
 	m_listaPontos[4] = ofVec2f(680, 1555) + mundo;
 
-	/*m_posNovoPonto sera usado para poder identificar qual ponto do caminho sera reajustado a posicao*/
+	/*m_posNovoPonto sera usado para poder identificar qual ponto do caminho sera reajustad o a posicao*/
 	m_posNovoPonto = 0;
 }
 
