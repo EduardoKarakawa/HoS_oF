@@ -11,7 +11,7 @@ class Creep : public Objeto{
 	private:
 		int m_proximoPonto, m_id;
 		bool m_vivo;
-		float m_vida;
+		float m_vida, m_velocidade;
 		Caminho* m_rota;
 		ofVec2f m_arrodear, m_direcao;
 
@@ -23,6 +23,7 @@ class Creep : public Objeto{
 		void SetVivo(bool vivo);
 		void LevarDano(float dano);
 		bool SeguirJogador(ofVec2f player);
+		void SetVelocidade(float velocidade);
 		int GetId();
 		~Creep() {};
 };

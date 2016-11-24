@@ -61,6 +61,10 @@ void Controlador::Atualizar() {
 					
 		}
 	}
+
+
+	m_listaCreeps = m_player->m_condemnAtaque.AplicarDano(m_player->GetPosicao(), m_listaCreeps, m_totalCreep);
+
 	
 }
 

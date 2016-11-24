@@ -5,6 +5,7 @@
 	Inicia o jogador
 ---------------------------------------------------------------------------------------------*/
 void Jogador::Iniciar(ofVec2f posicao, ofVec2f* mundo){
+	m_condemnAtaque.Iniciar();
 	m_posicao = posicao;
 	m_proxPosicao = posicao;
 	m_danoPadrao = 15.f;
@@ -111,11 +112,8 @@ void Jogador::Atacar(){
 		
 			m_listaTiros.AtirarEm(m_posicaoAlvo, m_IDCreep);
 			m_listaTiros.Atualizar();
+		}
 
-
-	
-	}
-	
 
 }
 

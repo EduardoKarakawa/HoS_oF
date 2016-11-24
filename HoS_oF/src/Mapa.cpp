@@ -6,9 +6,11 @@ void Mapa::Iniciar(ofVec2f posicao, string localImagem) {
 	m_atingiuBorda = true;
 }
 
+
+
+
 //------------------------------------------------------------------------------------------
 //----------------------- CONTROLADOR DE CAMERA -------------------------------------------
-
 void Mapa::ControladorCam(ofVec2f jogador) {
 	m_seguirJogador ? FixarCamJogador(jogador) : CamLivre();
 }
@@ -23,20 +25,23 @@ ofVec2f * Mapa::GetEnderecoPosicao()
 	return &m_posicao;
 }
 
+
+
+
+
 //------------------------------------------------------------------------------------------
 //------------------------- FIXA A CAMERA NO JOGADOR ---------------------------------------
-
-
 void Mapa::FixarCamJogador(ofVec2f jogador) {
 	ofVec2f tmp = jogador - ofVec2f(ofGetWidth() / 2.f, ofGetHeight() / 2.f);
 	m_posicao = -tmp;
 }
 
 
+
+
+
 //------------------------------------------------------------------------------------------
 //------------------ MOVE A CAMERA QUANDO MOUSE ENCOSTAR NAS BORDAS DA TELA ----------------
-
-
 void Mapa::CamLivre() {
 
 	ofVec2f tmp_mouse(ofGetMouseX(), ofGetMouseY()); //Pegando a posicao do mouse
@@ -72,10 +77,12 @@ void Mapa::CamLivre() {
 }
 
 
+
+
+
+
 //------------------------------------------------------------------------------------------
 //-------------------- DESENHAR NA TELA ----------------------------------------------------
-
-
 void Mapa::Draw(ofVec2f mundo) {
 	m_sprite.draw(m_posicao);
 }

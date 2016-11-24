@@ -54,6 +54,9 @@ void ofApp::keyPressed(int key){
 void ofApp::keyReleased(int key){
 	if ((key == 'i') || (key == 'I'))
 		controlador.SetDesenharRota(false);
+	if ((key == 'q') || (key == 'Q'))
+		player.m_condemnAtaque.SetAtivar(true);
+
 }
 
 //--------------------------------------------------------------

@@ -176,6 +176,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Caminho.cpp" />
+    <ClCompile Include="src\Condemn.cpp" />
     <ClCompile Include="src\Controlador.cpp" />
     <ClCompile Include="src\Creep.cpp" />
     <ClCompile Include="src\Jogador.cpp" />
@@ -187,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Caminho.h" />
+    <ClInclude Include="src\Condemn.h" />
     <ClInclude Include="src\Controlador.h" />
     <ClInclude Include="src\Creep.h" />
     <ClInclude Include="src\Jogador.h" />

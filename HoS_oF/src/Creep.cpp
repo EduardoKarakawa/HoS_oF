@@ -9,6 +9,7 @@ void Creep::Iniciar(Caminho* rota, int id) {
 	m_rota = rota;
 	m_posicao = rota->PegarPosicaoDe(0); //
 	m_direcao = rota->PegarPosicaoDe(1);
+	m_velocidade = 50.f;
 	m_vida = 100.f;
 	m_vivo = true;
 
@@ -33,11 +34,11 @@ void Creep::Atualizar(float angle, ofVec2f player) {
 				else {
 					angle = angle * PI / 180.f;
 					m_arrodear.set(cosf(angle), sinf(angle));
-					m_posicao += ofVec2f(m_arrodear).normalized() * VELOCIDADE * ofGetLastFrameTime();
+					m_posicao += ofVec2f(m_arrodear).normalized() * m_velocidade * ofGetLastFrameTime();
 				}
 			}
 			else {
-				m_posicao += (m_direcao - m_posicao).normalized() * VELOCIDADE * ofGetLastFrameTime();
+				m_posicao += (m_direcao - m_posicao).normalized() * m_velocidade * ofGetLastFrameTime();
 			}
 		
 		}
@@ -97,10 +98,14 @@ bool Creep::SeguirJogador(ofVec2f player){
 
 	if (seguir) {
 		m_direcao = player;
-		m_posicao += ofVec2f(tmp2).normalized() * VELOCIDADE * ofGetLastFrameTime();
+		m_posicao += ofVec2f(tmp2).normalized() * m_velocidade * ofGetLastFrameTime();
 	}
 
 	return seguir;
+}
+
+void Creep::SetVelocidade(float velocidade){
+	m_velocidade = velocidade;
 }
 
 int Creep::GetId(){

@@ -1,6 +1,7 @@
 #pragma once
 #include "Objeto.h"
 #include "Creep.h"
+#include "Condemn.h"
 #include "Tiro.h"
 #include "ofVec2f.h"
 #include "ofAppRunner.h"
@@ -14,8 +15,10 @@ class Jogador : public Objeto {
 		int m_tirou, m_IDCreep;
 		ofVec2f m_proxPosicao, m_posicaoAlvo;
 		float m_danoPadrao;
-		//asdasd
+
+
 	public:
+		Condemn m_condemnAtaque;
 		void Iniciar(ofVec2f posicao, ofVec2f* mundo);
 		void SetProxPosicao(ofVec2f proxPosicao);
 		void Atualizar(ofVec2f mundo, ofVec2f posicaoCreep);
