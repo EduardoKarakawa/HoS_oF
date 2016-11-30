@@ -22,7 +22,7 @@ class Creep : public Objeto{
 		bool GetVivo();
 		void SetVivo(bool vivo);
 		void LevarDano(float dano);
-		bool SeguirJogador(ofVec2f player);
+		bool SeguirJogador(ofVec2f player, float angle);
 		void SetVelocidade(float velocidade);
 		int GetId();
 		~Creep() {};

@@ -72,7 +72,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
 	if (button == OF_MOUSE_BUTTON_RIGHT) {
-		player.SetAtaqueEsseCreep(controlador.MouseClicouEm());
+		player.SetAtaqueEsseC§reep(controlador.MouseClicouEm());
 		player.SetProxPosicao(ofVec2f(x, y) - mundo.GetPosicao());
 		
 

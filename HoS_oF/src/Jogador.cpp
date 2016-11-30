@@ -117,14 +117,25 @@ void Jogador::Atacar(){
 
 }
 
+
+/*---------------------------------------------------------------------------------------------
+	Retorna o ID do creep que esta sendo atacado
+---------------------------------------------------------------------------------------------*/
 int Jogador::GetCreepID(){
 	return m_IDCreep;
 }
 
+
+/*---------------------------------------------------------------------------------------------
+	Retorna se o tiro atingiu o creep
+---------------------------------------------------------------------------------------------*/
 bool Jogador::GetTiroAtingiu(){
 	return m_listaTiros.GetAtingiu();
 }
 
+/*---------------------------------------------------------------------------------------------
+	Define um valor para a variavel que indica se um tiro atingiu um creep ou nao
+---------------------------------------------------------------------------------------------*/
 void Jogador::SetTiroAtingiu(bool set){
 	m_listaTiros.SetAtingiu(set);
 }

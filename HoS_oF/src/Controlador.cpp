@@ -39,15 +39,19 @@ void Controlador::Atualizar() {
 	
 
 	/* Percorre a lista de creeps atualizando as posicoes se ele estiver vivo */
-	int tmp_cont = 0;
+	int core_cont = 0, ply_cont = 0;
 	for (int i = 0; i < m_totalCreep; i++){ //Aki sera contado o creeps que estao perto da enchantress para poder colocar eles envolta dela
-		if (m_rota.GetDistancia(4, m_listaCreeps[i].GetPosicao()) <= 60.f) {
-			tmp_cont++;
-		}
+		if (m_rota.GetDistancia(4, m_listaCreeps[i].GetPosicao()) <= 60.f) 
+			core_cont++;
+		else if (m_player->GetPosicao().distance(m_listaCreeps[i].GetPosicao()) <= 120.f)
+			ply_cont++;
 	}
+
 	for (int i = 0; i < m_totalCreep; i++) {
 		if (m_listaCreeps[i].GetVivo()) {
-			m_listaCreeps[i].Atualizar((360.f / (tmp_cont*1.f)) * i, m_player->GetPosicao());
+			if (!m_listaCreeps[i].SeguirJogador(m_player->GetPosicao(), (360.f / (ply_cont*1.f)) * i))
+				m_listaCreeps[i].Atualizar((360.f / (core_cont*1.f)) * i, m_player->GetPosicao());
+
 		}
 	}
 
@@ -57,6 +61,7 @@ void Controlador::Atualizar() {
 			if (m_listaCreeps[j].GetId() == m_player->GetCreepID()) {
 				m_listaCreeps[j].LevarDano(m_player->GetDanoPadrao() + rand() % 10);
 				m_player->SetTiroAtingiu(false);
+				break;
 			}
 					
 		}

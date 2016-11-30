@@ -70,17 +70,25 @@ void Tiro::AtirarEm(ofVec2f alvo, int idCreep){
 	m_atirou = true;
 }
 
+
+
+/*---------------------------------------------------------------------------------------------
+	Define o valor da variavel m_atirou, se atirou ou nao 
+---------------------------------------------------------------------------------------------*/
 void Tiro::SetAtirou(bool set){
 	m_atirou = set;
 }
 
+/*---------------------------------------------------------------------------------------------
+	Define o valor da variavel m_atingiu, se atirou ou nao 
+---------------------------------------------------------------------------------------------*/
 void Tiro::SetAtingiu(bool set){
 	m_atingiu = set;
 }
 
 
 /*---------------------------------------------------------------------------------------------
-	Retorna o valor da variavel m_atirou
+	Retorna o valor da variavel m_atirou, que indica se o projetil é uma municao que foi atirada
 ---------------------------------------------------------------------------------------------*/
 bool Tiro::GetAtirou(){
 	return m_atirou;
@@ -89,12 +97,16 @@ bool Tiro::GetAtirou(){
 
 
 /*---------------------------------------------------------------------------------------------
-	Retorna se o tiro atingiu ou nao o creep
+	Retorna se o tiro atingiu ou nao algum creep
 ---------------------------------------------------------------------------------------------*/
 bool Tiro::GetAtingiu(){
 	return m_atingiu;
 }
 
+
+/*---------------------------------------------------------------------------------------------
+	Retorna a ID do creep que foi focado como destino
+---------------------------------------------------------------------------------------------*/
 int Tiro::GetIDCreep(){
 	return m_idCreep;
 }

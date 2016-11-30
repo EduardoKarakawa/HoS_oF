@@ -25,8 +25,6 @@ void Creep::Atualizar(float angle, ofVec2f player) {
 	m_vivo = m_vida > 0 ? true : false;
 
 	if(m_vivo){
-		if (!SeguirJogador(player)) {
-
 			m_direcao = m_rota->PegarPosicaoDe(m_proximoPonto);
 			if (m_posicao.distance(m_direcao) <= 50.f) {
 				if (m_proximoPonto < 4)
@@ -43,8 +41,34 @@ void Creep::Atualizar(float angle, ofVec2f player) {
 		
 		}
 
+}
+
+
+
+/*---------------------------------------------------------------------------------------------
+Função que faz o creep seguir o player
+---------------------------------------------------------------------------------------------*/
+bool Creep::SeguirJogador(ofVec2f player, float angle) {
+	ofVec2f tmp = m_direcao - m_posicao;
+	ofVec2f tmp2 = player - m_posicao;
+	float angle1 = atan2f(tmp.y, tmp.x) * 180 / PI;
+	float angle2 = atan2f(tmp2.y, tmp2.x) * 180 / PI;
+	bool seguir = false;
+
+	seguir = ((abs(angle1) - abs(angle2)) <= 30) && (m_posicao.distance(player) <= 500.f);
+
+	if (seguir) {
+		m_direcao = player;
+		if (m_posicao.distance(m_direcao) <= 60.f) {
+			angle = angle * PI / 180.f;
+			m_arrodear.set(cosf(angle), sinf(angle));
+			m_posicao += ofVec2f(m_arrodear).normalized() * m_velocidade * ofGetLastFrameTime();
+		}
+		else
+			m_posicao += ofVec2f(tmp2).normalized() * m_velocidade * ofGetLastFrameTime();
 	}
 
+	return seguir;
 }
 
 
@@ -87,26 +111,13 @@ void Creep::LevarDano(float dano){
 	m_vida -= dano;
 }
 
-bool Creep::SeguirJogador(ofVec2f player){
-	ofVec2f tmp = m_direcao - m_posicao;
-	ofVec2f tmp2 = player - m_posicao;
-	float angle1 = atan2f(tmp.y, tmp.x) * 180 / PI;
-	float angle2 = atan2f(tmp2.y, tmp2.x) * 180 / PI;
-	bool seguir = false;
-	
-	seguir = ((abs(angle1) - abs(angle2)) <= 30) && (m_posicao.distance(player) <= 500.f);
 
-	if (seguir) {
-		m_direcao = player;
-		m_posicao += ofVec2f(tmp2).normalized() * m_velocidade * ofGetLastFrameTime();
-	}
-
-	return seguir;
-}
 
 void Creep::SetVelocidade(float velocidade){
 	m_velocidade = velocidade;
 }
+
+
 
 int Creep::GetId(){
 	return m_id;
